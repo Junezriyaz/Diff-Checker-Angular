@@ -4,27 +4,34 @@
 <div>
   <div class="container-fluid">
     <div class="row">
-      <div class="col">
+      <div class="col-lg-6 col-md-12">
         <p class="text-area_label">Original Text</p>
         <div class="input-group">
-          <textarea class="form-control text-area"></textarea>
+          <ngx-monaco-editor class="differ-editor" [options]="editorOptions" [(ngModel)]="originalText">
+          </ngx-monaco-editor>
         </div>
       </div>
-      <div class="col">
+      <div class="col-lg-6 col-md-12">
         <p class="text-area_label">Changed Text</p>
         <div class="input-group">
-          <textarea class="form-control text-area"></textarea>
+          <ngx-monaco-editor class="differ-editor" [options]="editorOptions" [(ngModel)]="changedText">
+          </ngx-monaco-editor>
         </div>
       </div>
+    </div>
+    <hr>
+    <div class="btn-container">
+      <button type="button" class="btn btn-primary" (click)="checkDifference()">Check Diff</button>
+    </div>
+    <hr *ngIf="displayDiffChecker">
+    <div class="row" *ngIf="displayDiffChecker">
       <div class="col">
         <p class="text-area_label">Difference Text</p>
         <div class="input-group">
-          <textarea class="form-control text-area" disabled></textarea>
+          <ngx-monaco-diff-editor class="differ-editor differ-block" [options]="options" [originalModel]="originalModel"
+            [modifiedModel]="modifiedModel"></ngx-monaco-diff-editor>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="btn-container">
-  <button type="button" class="btn btn-primary">Check Diff</button>
 </div>

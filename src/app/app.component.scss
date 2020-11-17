@@ -23,4 +23,16 @@
 
 .text-area_label{
     text-align: center;
+    font-weight: bold;
+}
+
+.differ-editor {
+    height: 45vh;
+    min-width:500px;
+    width:100%;
+    border: 1px solid #c0c0c0;
+}
+
+.differ-block{
+    margin-bottom: 24px;
 }
